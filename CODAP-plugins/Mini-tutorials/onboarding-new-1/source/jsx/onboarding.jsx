@@ -251,6 +251,7 @@ class TutorialView extends React.Component {
       //console.log('iDescription.operation', iDescription.operation);
       //console.log('iNotification.values.operation', iNotification.values.operation);
       console.log('iDescription.requiresSpecialHandling', iDescription.requiresSpecialHandling);
+      console.log('iDescription prereq =', this.isAccomplished( iDescription.prereq))
       //console.log('iNotification.values.result', iNotification.values.result);
       return iDescription.operation === iNotification.values.operation && !iDescription.requiresSpecialHandling &&
           (!iDescription.prereq || this.isAccomplished( iDescription.prereq) &&
@@ -346,10 +347,11 @@ class TutorialView extends React.Component {
           }.bind(this),
 
           handleToggleMinimizeMap = function () {
-            let tTask = taskDescriptions.descriptions.find(function (iDescription) {
-              if (iNotification.values.type === 'DG.MapView' && this.isAccomplished( iDescription.prereq))
-                this.handleAccomplishment('RestoreMap');
-              }.bind(this));
+            //let tTask = taskDescriptions.descriptions.find(function (iDescription) {
+            if (this.isAccomplished( 'MinimizeMap'))
+              this.handleAccomplishment('RestoreMap');
+            //  }.bind(this));
+              this.handleAccomplishment('MinimizeMap');
           }.bind(this);
 
   //Add operations here to allow them to be handled by the handlers above!
@@ -365,8 +367,8 @@ class TutorialView extends React.Component {
             this.handleAccomplishment('MakeTable');
           break;
         case 'move':
-          if (iNotification.values.type === 'DG.GraphView' || iNotification.values.type === 'DG.TableView')
-            this.handleAccomplishment('MoveComponent');
+          if (iNotification.values.type === 'DG.MapView')
+            this.handleAccomplishment('MoveMap');
           break;
         case 'hideAttributes':
           handleHideAttribute();
@@ -378,7 +380,8 @@ class TutorialView extends React.Component {
           handleLegendAttributeChange();
           break;
         case 'toggle minimize component':
-          handleToggleMinimizeMap();
+          if (iNotification.values.type === 'DG.MapView')
+            handleToggleMinimizeMap();
           break;
       }
       return {success: true};

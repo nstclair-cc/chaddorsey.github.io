@@ -29,14 +29,16 @@ taskDescriptions = {
     },
     {
       key: 'MoveMap', label: 'Move the map', url: './resources/MoveMap.mp4',
-      operation: 'move', type: ['DG.GraphView', 'DG.TableView'],
+      operation: 'move', type: 'DG.MapView',
+      requiresSpecialHandling: true,
       feedback: <div>
         <p>You can always move a map (or a graph or a table) to make more space on the screen.</p>
       </div>
     },
     {
       key: 'MinimizeMap', label: 'Minimize the map', url: './resources/MinimizeMap.mp4',
-      operation: 'toggle minimize component', type: ['DG.MapView'],
+      operation: 'toggle minimize component', type: 'DG.MapView',
+      requiresSpecialHandling: true,
       feedback: <div>
         <p>Now you have a lot more space.</p>
 	<p>You can restore the map to its original size by clicking on the “minus” sign again.</p>
@@ -45,7 +47,7 @@ taskDescriptions = {
   //* Issues here – operation already captured? {also bug — need to reposition the map after restoring size}
     { 
       key: 'RestoreMap', label: 'Restore the map to its full size', url: './resources/RestoreMap.mp4',
-      operation: 'toggle minimize component', type: ['DG.MapView'],
+      operation: 'toggle minimize component', type: 'DG.MapView',
       prereq: 'MinimizeMap',
       requiresSpecialHandling: true,
       feedback:
