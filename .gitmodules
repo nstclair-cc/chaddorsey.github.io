@@ -1,0 +1,3 @@
+[submodule "CODAP-plugins/Mini-tutorials"]
+	path = CODAP-plugins/Mini-tutorials
+	url = https://github.com/chaddorsey/Data-Explorers-CODAP-Mini-Tutorials/
