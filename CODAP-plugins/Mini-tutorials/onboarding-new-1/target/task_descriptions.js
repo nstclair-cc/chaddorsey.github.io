@@ -50,7 +50,8 @@ taskDescriptions = {
     )
   }, {
     key: 'MoveMap', label: 'Move the map', url: './resources/MoveMap.mp4',
-    operation: 'move', type: ['DG.GraphView', 'DG.TableView'],
+    operation: 'move', type: 'DG.MapView',
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
@@ -62,7 +63,8 @@ taskDescriptions = {
     )
   }, {
     key: 'MinimizeMap', label: 'Minimize the map', url: './resources/MinimizeMap.mp4',
-    operation: 'toggle minimize component', type: ['DG.MapView'],
+    operation: 'toggle minimize component', type: 'DG.MapView',
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
@@ -81,7 +83,7 @@ taskDescriptions = {
   //* Issues here – operation already captured? {also bug — need to reposition the map after restoring size}
   {
     key: 'RestoreMap', label: 'Restore the map to its full size', url: './resources/RestoreMap.mp4',
-    operation: 'toggle minimize component', type: ['DG.MapView'],
+    operation: 'toggle minimize component', type: 'DG.MapView',
     prereq: 'MinimizeMap',
     requiresSpecialHandling: true,
     feedback: React.createElement(
