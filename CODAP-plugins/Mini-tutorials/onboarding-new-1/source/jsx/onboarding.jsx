@@ -320,12 +320,13 @@ class TutorialView extends React.Component {
 
 
           handleLegendAttributeChange = function() {
-            if((iNotification.values.type === 'DG.MapModel') && (iNotification.values.attributeName === 'Average Life Expectancy'))
-              this.handleAccomplishment('AddLifeExpectancy');
-              let tTask = taskDescriptions.descriptions.find(function (iDescription) {
+            let tTask = taskDescriptions.descriptions.find(function (iDescription) {
             if ((this.isAccomplished( iDescription.prereq)))
               this.handleAccomplishment('ChangeMapLegend');
             }.bind(this));
+            if((iNotification.values.type === 'DG.MapModel') && (iNotification.values.attributeName === 'Average Life Expectancy')) {
+              this.handleAccomplishment('AddLifeExpectancy');
+            };
           }.bind( this),
 
           handleDataContextCountChanged = function () {
