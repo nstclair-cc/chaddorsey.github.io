@@ -3,7 +3,7 @@ hasMouse = !('ontouchstart' in window);
 
 taskDescriptions = {
   descriptions: [hasMouse ? {
-    key: 'CreateMap', label: 'Create a map.', url: './resources/CreateMap.mp4',
+    key: 'CreateMap', label: 'Create a map.', url: './resources/videos/CreateMap.mp4',
     operation: 'create', type: ['DG.MapView'],
     feedback: React.createElement(
       'div',
@@ -20,7 +20,7 @@ taskDescriptions = {
       )
     )
   } : {}, {
-    key: 'AddLifeExpectancy', label: 'Drag the attribute "Average Life Expectancy" onto the map', url: './resources/DragAttributeMap.mp4',
+    key: 'AddLifeExpectancy', label: 'Drag the attribute "Average Life Expectancy" onto the map', url: './resources/videos/DragAttributeMap.mp4',
     operation: 'legendAttributeChange', type: 'DG.MapModel',
     constraints: [{ property: 'attributeName', value: 'Average Life Expectancy' }],
     requiresSpecialHandling: true,
@@ -49,7 +49,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'MoveMap', label: 'Move the map', url: './resources/MoveMap.mp4',
+    key: 'MoveMap', label: 'Move the map', url: './resources/videos/MoveMap.mp4',
     operation: 'move', type: 'DG.MapView',
     requiresSpecialHandling: true,
     feedback: React.createElement(
@@ -62,7 +62,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'MinimizeMap', label: 'Minimize the map', url: './resources/MinimizeMap.mp4',
+    key: 'MinimizeMap', label: 'Minimize the map', url: './resources/videos/MinimizeMap.mp4',
     operation: 'toggle minimize component', type: 'DG.MapView',
     requiresSpecialHandling: true,
     feedback: React.createElement(
@@ -82,7 +82,7 @@ taskDescriptions = {
   },
   //* Issues here – operation already captured? {also bug — need to reposition the map after restoring size}
   {
-    key: 'RestoreMap', label: 'Restore the map to its full size', url: './resources/RestoreMap.mp4',
+    key: 'RestoreMap', label: 'Restore the map to its full size', url: './resources/videos/RestoreMap.mp4',
     operation: 'toggle minimize component', type: 'DG.MapView',
     prereq: 'MinimizeMap',
     requiresSpecialHandling: true,
@@ -103,7 +103,7 @@ taskDescriptions = {
   },
   //Issues here – differentiating whether user has selected the top-most bin of an arbitrarily selected attribute
   {
-    key: 'SelectDarkColorsOnMap', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/SelectDarkColorsOnMap.mp4',
+    key: 'SelectDarkColorsOnMap', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/videos/SelectDarkColorsOnMap.mp4',
     operation: 'selectCases', type: '',
     feedback: React.createElement(
       'div',
@@ -117,7 +117,7 @@ taskDescriptions = {
   },
   //Issues here — a) not triggering this at the same time as the first, b) etermining whether user has added a new attribute rather than dragging the old one again
   {
-    key: 'ChangeMapLegend', label: 'Color the map by a different attribute.', url: './resources/ColorMap2ndAttribute.mp4',
+    key: 'ChangeMapLegend', label: 'Color the map by a different attribute.', url: './resources/videos/ColorMap2ndAttribute.mp4',
     operation: 'legendAttributeChange', type: 'DG.MapModel',
     prereq: 'AddLifeExpectancy',
     requiresSpecialHandling: true,

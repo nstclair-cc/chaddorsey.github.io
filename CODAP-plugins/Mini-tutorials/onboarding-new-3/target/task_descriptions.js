@@ -5,7 +5,7 @@ taskDescriptions = {
   descriptions: [hasMouse ?
   // Need to make specific to chosen attribute
   {
-    key: 'HideForested', label: 'Hide the attribute “Forested Area”', url: './resources/CreateMap.mp4',
+    key: 'HideForested', label: 'Hide the attribute “Forested Area”', url: './resources/videos/HideAttribute.mp4',
     operation: 'hideAttribute', type: '',
     requiresSpecialHandling: true,
     //constraints: [ {property: 'attrIDs', value: 22}],
@@ -24,7 +24,7 @@ taskDescriptions = {
       )
     )
   } : {}, {
-    key: 'UnhideAttribute', label: 'Get “Forested Area” to show up again', url: './resources/DragAttributeMap.mp4',
+    key: 'UnhideAttribute', label: 'Get “Forested Area” to show up again', url: './resources/videos/ShowAttribute.mp4',
     operation: 'unhideAttributes', type: '',
     constraints: [{ property: 'attrIDs', value: 22 }],
     feedback: React.createElement(
@@ -37,7 +37,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'MakeGraph', label: 'Create a graph', url: './resources/MoveMap.mp4',
+    key: 'MakeGraph', label: 'Create a graph', url: './resources/videos/CreateGraph.mp4',
     operation: 'create', type: ['DG.GraphView'],
     feedback: React.createElement(
       'div',
@@ -52,7 +52,7 @@ taskDescriptions = {
   // Need to make specific to chosen attribute and axis
   {
     key: 'AddDoctors', label: 'Drag "Total Count of Medical Doctors” onto the horizontal axis.',
-    url: './resources/MakeScatterplot.mp4',
+    url: './resources/videos/GraphHorizontal.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
     //constraints: [{property: 'attributeName', value:'Total Count of Medical Doctors'}],
     requiresSpecialHandling: true,
@@ -68,7 +68,7 @@ taskDescriptions = {
   },
   // Need to make specific to chosen attribute and axis
   {
-    key: 'AddRegionVertical', label: 'Graph “Region” on the vertical axis', url: './resources/SelectDarkColorsOnMap.mp4',
+    key: 'AddRegionVertical', label: 'Graph “Region” on the vertical axis', url: './resources/videos/GraphVertical.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
     //constraints: [ {property: 'attributeName', value: 'Region'}],
     requiresSpecialHandling: true,
@@ -84,7 +84,7 @@ taskDescriptions = {
   },
   //
   {
-    key: 'ToggleMean', label: 'Add the mean to each distribution to help compare them', url: './resources/ColorMap2ndAttribute.mp4',
+    key: 'ToggleMean', label: 'Add the mean to each distribution to help compare them', url: './resources/videos/MeanRegion.mp4',
     operation: 'togglePlottedMean', type: 'DG.GraphView',
     feedback: React.createElement(
       'div',
@@ -96,7 +96,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'ToggleMedian', label: 'Add the median to each distribution to help compare them', url: './resources/ColorMap2ndAttribute.mp4',
+    key: 'ToggleMedian', label: 'Add the median to each distribution to help compare them', url: './resources/videos/MedianRegion.mp4',
     operation: 'togglePlottedMedian', type: 'DG.GraphView',
     feedback: React.createElement(
       'div',
@@ -108,7 +108,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'RemoveRegion', label: 'Remove “Region” from the vertical axis to create a single distribution again', url: './resources/ColorMap2ndAttribute.mp4',
+    key: 'RemoveRegion', label: 'Remove “Region” from the vertical axis to create a single distribution again', url: './resources/videos/RemoveVertical.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
     constraints: [{ property: 'attributeName', value: 'Remove Y: Region' }],
     prereq: 'AddRegionVertical',

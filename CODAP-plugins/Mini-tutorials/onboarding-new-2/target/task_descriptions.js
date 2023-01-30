@@ -3,7 +3,7 @@ hasMouse = true; // This is a kludge to prevent loading of Mammals on touch devi
 
 taskDescriptions = {
   descriptions: [{
-    key: 'CreateGraph', label: 'Create a graph.', url: './resources/CreateGraph.mp4',
+    key: 'CreateGraph', label: 'Create a graph.', url: './resources/videos/CreateGraph.mp4',
     operation: 'create', type: 'graph',
     feedback: React.createElement(
       'div',
@@ -24,7 +24,7 @@ taskDescriptions = {
   // Make specific to named attribute (and horizontal axis?)
   {
     key: 'AddDoctors', label: 'Drag "Total Count of Medical Doctors” onto the horizontal axis.',
-    url: './resources/MakeScatterplot.mp4',
+    url: './resources/videos/DragAttributeHoriz.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
     constraints: [{ property: 'attributeName', value: 'Total Count of Medical Doctors' }],
     requiresSpecialHandling: true,
@@ -41,7 +41,7 @@ taskDescriptions = {
 
   // Make specific to named attribute (and axis / swap)
   {
-    key: 'AddInternetUsers', label: 'Change the attribute by dragging “Internet Users” to the horizontal axis.', url: './resources/ChangeAttribute.mp4',
+    key: 'AddInternetUsers', label: 'Change the attribute by dragging “Internet Users” to the horizontal axis.', url: './resources/videos/ChangeAttribute.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
     //constraints: [{property: 'attributeName', value:'Internet Users'}],
     prereq: 'AddDoctors',
@@ -69,7 +69,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'ChangeScale', label: 'Drag the horizontal axis to change the scale. (Can you spread the points out?)', url: './resources/ChangeScale.mp4',
+    key: 'ChangeScale', label: 'Drag the horizontal axis to change the scale. (Can you spread the points out?)', url: './resources/videos/ChangeScale.mp4',
     operation: 'change axis bounds', type: 'DG.GraphView',
     prereq: 'AddInternetUsers',
     feedback: React.createElement(
@@ -83,7 +83,7 @@ taskDescriptions = {
     )
   }, {
     key: 'MakeLegend', label: 'Drag “Urban Living” to the middle of the graph to color the points in the graph.',
-    url: './resources/MakeLegend.mp4',
+    url: './resources/videos/ColorPoints.mp4',
     operation: 'legendAttributeChange', type: 'DG.GraphModel',
     requiresSpecialHandling: true,
     //constraints: [ {property: 'attributeName', value: 'Urban Living'}],
@@ -106,7 +106,7 @@ taskDescriptions = {
 
   // Make specific to graph title change (vs. table)
   {
-    key: 'ChangeGraphTitle', label: 'Add a title to your graph!', url: './resources/AddTitle.mp4',
+    key: 'ChangeGraphTitle', label: 'Add a title to your graph!', url: './resources/videos/AddTitle.mp4',
     operation: 'titleChange', type: '',
     //componentType: 'graph',
     //constraints: [ {property: 'to', value: 'NewTitle'}],
@@ -121,7 +121,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'DrawTool', label: 'Open your graph in the Draw Tool.', url: './resources/DrawTool.mp4',
+    key: 'DrawTool', label: 'Open your graph in the Draw Tool.', url: './resources/videos/DrawTool.mp4',
     operation: 'create game controller', type: 'DG.WebView',
     prereq: 'CreateGraph',
     feedback: React.createElement(
