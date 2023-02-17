@@ -6,8 +6,8 @@ taskDescriptions = {
       key: 'CreateGraph', label: 'Create a graph.', url: './resources/videos/CreateGraph.mp4',
       operation: 'create', type: 'graph',
       feedback: <div>
-        <p>Great, you have a graph!  Now you can put an attribute on it.</p>
-        <p>The data points are scattered because nothing has been added to the axes yet.</p>
+        <p>Great, you have a graph!  The data points are scattered because nothing has been added to the axis yet.</p>
+        <p>The next step is deciding on an attribute to explore.</p>
       </div>
     },
     
@@ -30,7 +30,7 @@ taskDescriptions = {
       //constraints: [{property: 'attributeName', value:'Internet Users'}],
       prereq: 'AddDoctors',
       feedback: <div>
-        <p>Great work.  You can drag another attribute into the middle of the graph to get a sense of the relationship between the two attributes.</p>
+        <p>Great work. Next you will drag another attribute into the middle of the graph to get a sense of the relationship between the two attributes.</p>
       </div>,
       alt_feedback: <div>
         <p>Very nice graph!</p>
@@ -43,7 +43,7 @@ taskDescriptions = {
       operation: 'change axis bounds', type: 'DG.GraphView',
       prereq: 'AddInternetUsers',
       feedback: <div>
-        <p>Notice that you need to hover over the horizontal axis to get a right-facing hand to appear in order to expand the axis.  A left-facing or upward-facing hand will let you change the axis in different ways.  Changing the scale on an axis can allow you to zoom in on one part of the graph or to zoom out to get a view of all of the data points.  You can use this same tool on either the horizontal or vertical axis. Try it!</p>
+        <p>Notice that you need to hover over the horizontal axis to get a right-facing hand to expand the axis.  You can change the scale on either the horizontal or vertical axis to zoom in or out on the data points.  When you hover over an axis, the hand may face left, right, up or down to show how the axis will change.</p>
       </div>
     },
     {
@@ -56,7 +56,7 @@ taskDescriptions = {
       feedback: <div>
         <p>Nice job. You’ll notice that the points are colored according to the values of “Urban Living.”</p>
 
-        <p>Notice where the darker and lighter points are.  Are they clustered in any way? How do they relate to the values of “Internet Users?”?</p>
+        <p>Notice where the darker and lighter points are.  Are they clustered in any way? How do they relate to the values of “Internet Users”?</p>
       </div>
     },
 

@@ -28,7 +28,7 @@ taskDescriptions = {
       key: 'MakeGraph', label: 'Create a graph', url: './resources/videos/CreateGraph.mp4',
       operation: 'create', type: ['DG.GraphView'],
       feedback: <div>
-        <p>Great, you have a graph!  Now you can put attributes on it. The data points are scattered because nothing has been added to the axes yet.</p>
+        <p>Great, you have a graph!  The data points are scattered because nothing has been added to the axes yet. Next you will explore what happens when you add an attribute.</p>
       </div>,
     },
       // Need to make specific to chosen attribute and axis
@@ -64,7 +64,7 @@ taskDescriptions = {
       key: 'ToggleMedian', label: 'Add the median to each distribution to help compare them', url: './resources/videos/MedianRegion.mp4',
       operation: 'togglePlottedMedian', type: 'DG.GraphView',
       feedback: <div>
-        <p>How does adding the median line help you compare the two distributions? Do the medians show you the same patterns as the means did?</p>
+        <p>How does adding the median line help you compare the distributions of doctors in different regions?  Do the medians show you the same patterns as the means did?</p>
       </div>
     },
     {
