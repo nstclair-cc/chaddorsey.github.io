@@ -4,8 +4,9 @@ taskDescriptions = {
   descriptions: [
     hasMouse ?
       {
-        key: 'CreateMap', label: 'Create a map.', url: './resources/videos/CreateMap.mp4',
-        operation: 'create', type: ['DG.MapView'],
+        key: 'MakeMap', label: 'Create a map.', url: './resources/videos/CreateMap.mp4',
+        operation: 'create', type: 'map',
+        requiresSpecialHandling: true,
         feedback: <div>
         <p>Great, you’ve opened a map.  Now you can put an attribute on it.</p>
         <p>The colors are all the same because you haven’t dragged data onto the map yet. You will add data from an attribute next.</p>

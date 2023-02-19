@@ -31,8 +31,6 @@ taskDescriptions = {
         <p>Great, you’ve opened a map.  Now you can put an attribute on it.</p>
         <p>The colors are all the same because you haven’t dragged data onto the map yet. You will add data from an attribute next.</p>
       </div>
-      } :
-    {
     },
     //4.4 - Add life expectancy on the vertical axis - need to redo actions
     {

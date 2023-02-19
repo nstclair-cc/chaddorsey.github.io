@@ -3,8 +3,9 @@ hasMouse = !('ontouchstart' in window);
 
 taskDescriptions = {
   descriptions: [hasMouse ? {
-    key: 'CreateMap', label: 'Create a map.', url: './resources/videos/CreateMap.mp4',
-    operation: 'create', type: ['DG.MapView'],
+    key: 'MakeMap', label: 'Create a map.', url: './resources/videos/CreateMap.mp4',
+    operation: 'create', type: 'map',
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
@@ -16,7 +17,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'The colors on the map are all the same because you haven\u2019t dragged data onto the map yet.'
+        'The colors are all the same because you haven\u2019t dragged data onto the map yet. You will add data from an attribute next.'
       )
     )
   } : {}, {
@@ -30,7 +31,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Well done.  You dragged \u201CAverage Life Expectancy\u201D from the table to the map.'
+        'Well done. You dragged \u201CAverage Life Expectancy\u201D from the table to the map.'
       ),
       React.createElement(
         'p',
@@ -40,7 +41,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Countries with a high value are darker and those with a low value are lighter. When you select a country, notice that the corresponding row highlights on the table. You can select lighter or darker portions of the map using the legend at the bottom.'
+        'Countries with a high value are darker and those with a low value are lighter. Later you will select lighter or darker portions on the map using the legend at the bottom.'
       ),
       React.createElement(
         'p',
@@ -61,46 +62,30 @@ taskDescriptions = {
         'You can always move a map (or a graph or a table) to make more space on the screen.'
       )
     )
-  }, {
-    key: 'MinimizeMap', label: 'Minimize the map', url: './resources/videos/MinimizeMap.mp4',
-    operation: 'toggle minimize component', type: 'DG.MapView',
-    requiresSpecialHandling: true,
-    feedback: React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'p',
-        null,
-        'Now you have a lot more space.'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'You can restore the map to its original size by clicking on the \u201Cminus\u201D sign again.'
-      )
-    )
   },
+  //* Chad, Andee and Traci would like to delete Minimize the Map and Restore the Map. I commented these out for now. -NS
+  //*    {
+  //*     key: 'MinimizeMap', label: 'Minimize the map', url: './resources/videos/MinimizeMap.mp4',
+  //*     operation: 'toggle minimize component', type: 'DG.MapView',
+  //*    requiresSpecialHandling: true,
+  //*    feedback: <div>
+  //*    <p>Now you have a lot more space.</p>
+  //* <p>You can restore the map to its original size by clicking on the “minus” sign again.</p>
+  //*   </div>
+  //*    },
   //* Issues here – operation already captured? {also bug — need to reposition the map after restoring size}
-  {
-    key: 'RestoreMap', label: 'Restore the map to its full size', url: './resources/videos/RestoreMap.mp4',
-    operation: 'toggle minimize component', type: 'DG.MapView',
-    prereq: 'MinimizeMap',
-    requiresSpecialHandling: true,
-    feedback: React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'p',
-        null,
-        'Now you have your map back.'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'You can always minimize or restore any CODAP object (called a \u201Ctile\u201D).  There is a list of all of your tiles under \u201Ctiles\u201D in the upper right of your screen.'
-      )
-    )
-  },
+  //*    { 
+  //*      key: 'RestoreMap', label: 'Restore the map to its full size', url: './resources/videos/RestoreMap.mp4',
+  //*      operation: 'toggle minimize component', type: 'DG.MapView',
+  //*     prereq: 'MinimizeMap',
+  //*     requiresSpecialHandling: true,
+  //*      feedback:
+  //*     <div> 
+  //*      <p>Now you have your map back.</p>
+  //*	<p>You can always minimize or restore any CODAP object (called a “tile”).  There is a list of all 
+  //*	of your tiles under “tiles” in the upper right of your screen.</p>
+  //*    </div>
+  //*  },
   //Issues here – differentiating whether user has selected the top-most bin of an arbitrarily selected attribute
   {
     key: 'SelectDarkColorsOnMap', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/videos/SelectDarkColorsOnMap.mp4',
@@ -111,7 +96,12 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Well done! You selected a set of countries that have similar life expectancy and highlighted them on the map. How do you think you could select countries that have different values? For example, which countries have relatively low life expectancies?'
+        'Well done! You selected a set of countries that have similar life expectancy and highlighted them on the map. When you select a country, notice that the corresponding row highlights in the table. '
+      ),
+      React.createElement(
+        'p',
+        null,
+        'How do you think you could select countries that have different values? For example, which countries have relatively low life expectancies?'
       )
     )
   },
@@ -133,6 +123,11 @@ taskDescriptions = {
         'p',
         null,
         'You can drag any of the attributes in your table to the map to create a different map display in CODAP.'
+      ),
+      React.createElement(
+        'p',
+        null,
+        'To find the full name and more information about any attribute, you can hover over its name at the top of the column in the table.'
       )
     )
   }],
@@ -187,16 +182,6 @@ allAccomplishedFeedback = React.createElement(
     React.createElement(
       'li',
       null,
-      'Minimized the map'
-    ),
-    React.createElement(
-      'li',
-      null,
-      'Restored the map to its full size'
-    ),
-    React.createElement(
-      'li',
-      null,
       'Selected attributes with higher values on a map'
     ),
     React.createElement(
@@ -226,11 +211,6 @@ allAccomplishedFeedback = React.createElement(
       'CODAP Help'
     ),
     ' page. '
-  ),
-  React.createElement(
-    'button',
-    { onClick: () => window.parent.location.reload() },
-    'Start Over'
   )
 );
 

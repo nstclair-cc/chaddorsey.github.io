@@ -285,7 +285,7 @@ class TutorialView extends React.Component {
       let tHandled = false,
 
 
-// TODO: Tweak to handling to force horizontal axis for second attribute (i.e. reject two-attribute scatterplots)…
+
 
           handleAttributeChange = function () {
             console.log('iNotification.values',iNotification.values);
@@ -354,17 +354,24 @@ class TutorialView extends React.Component {
               this.handleAccomplishment('MinimizeMap');
           }.bind(this);
 
-  //Add operations here to allow them to be handled by the handlers above!
+          //handleMakeMap = function() {
+          //  if iNotification.values.type === 'map', !this.isAccomplished('Drag'))
+          //    this.handleAccomplishment('MakeMap');
+          //}.bind(this);
+
+          //Add operations here to allow them to be handled by the handlers above!
 
       switch (iNotification.values.operation) {
         case 'dataContextCountChanged':
           handleDataContextCountChanged();
           break;
         case 'create':
-          if (iNotification.values.type === 'graph')
-            this.handleAccomplishment('MakeGraph', !this.isAccomplished('Drag'));
-          else if (iNotification.values.type === 'caseTable', !this.isAccomplished('Drag'))
-            this.handleAccomplishment('MakeTable');
+         // if (iNotification.values.type === 'graph')
+         //   this.handleAccomplishment('MakeGraph', !this.isAccomplished('Drag'));
+         // else if (iNotification.values.type === 'caseTable', !this.isAccomplished('Drag'))
+         //   this.handleAccomplishment('MakeTable');
+          if (iNotification.values.type === 'map')
+            this.handleAccomplishment('MakeMap');
           break;
         case 'move':
           if (iNotification.values.type === 'DG.MapView')
@@ -455,7 +462,7 @@ function getStarted() {
 
   codapInterface.init({
     title: "Getting started with CODAP",
-    version: "1.03",
+    version: "1.05",
     dimensions: {
       width: 410,
       height: 625
