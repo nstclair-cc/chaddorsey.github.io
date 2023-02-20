@@ -330,11 +330,50 @@ class TutorialView extends React.Component {
         });
         this.handleAccomplishment('Drag');
       }.bind(this),
-          handleToggleMinimizeMap = function () {
-        //let tTask = taskDescriptions.descriptions.find(function (iDescription) {
-        if (this.isAccomplished('MinimizeMap')) this.handleAccomplishment('RestoreMap');
-        //  }.bind(this));
-        this.handleAccomplishment('MinimizeMap');
+
+
+      // handleToggleMinimizeMap = function () {
+      //   //let tTask = taskDescriptions.descriptions.find(function (iDescription) {
+      //   if (this.isAccomplished( 'MinimizeMap'))
+      //     this.handleAccomplishment('RestoreMap');
+      //   //  }.bind(this));
+      //     this.handleAccomplishment('MinimizeMap');
+      // }.bind(this),
+
+      handleSelectCases = function () {
+        var isDone = false;
+        var multiple = false;
+        function triggerCheckbox() {
+          this.handleAccomplishment('SelectCountries');
+        }
+        let triggerCheckboxThis = triggerCheckbox.bind(this);
+
+        codapInterface.sendRequest({
+          action: 'get',
+          resource: 'dataContextList'
+        }).then(function (iResult) {
+          if (iResult.success && iResult.values.length > 0) {
+            let tName = iResult.values[0].name;
+            codapInterface.sendRequest({
+              action: 'get',
+              resource: 'dataContext[' + tName + '].selectionList'
+            }).then(function (iResultTwo) {
+              //var isDone = false;
+              //console.log('isDone (0) = ' + isDone)
+              if (iResultTwo.success && iResultTwo.values.length > 3) {
+                console.log("Done!");
+                multiple = true;
+                triggerCheckboxThis();
+                //console.log('Now here')
+              }
+            });
+          }
+          isDone = multiple;
+        });
+        console.log('here --> isDone = ' + isDone);
+        console.log('here --> multiple = ' + multiple);
+
+        //  this.handleAccomplishment('SelectCountries');
       }.bind(this);
 
       //handleMakeMap = function() {
@@ -369,6 +408,9 @@ class TutorialView extends React.Component {
           break;
         case 'toggle minimize component':
           if (iNotification.values.type === 'DG.MapView') handleToggleMinimizeMap();
+          break;
+        case 'selectCases':
+          handleSelectCases();
           break;
       }
       return { success: true };

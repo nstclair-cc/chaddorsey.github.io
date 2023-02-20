@@ -61,8 +61,9 @@ taskDescriptions = {
      //*  },
     //Issues here – differentiating whether user has selected the top-most bin of an arbitrarily selected attribute
     {
-      key: 'SelectDarkColorsOnMap', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/videos/SelectDarkColorsOnMap.mp4',
+      key: 'SelectCountries', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/videos/SelectDarkColorsOnMap.mp4',
       operation: 'selectCases', type: '',
+      requiresSpecialHandling: true,
       feedback: <div>
         <p>Well done! You selected a set of countries that have similar life expectancy and highlighted them on the map. When you select a country, notice that the corresponding row highlights in the table. </p>
         <p>How do you think you could select countries that have different values? For example, which countries have relatively low life expectancies?</p>

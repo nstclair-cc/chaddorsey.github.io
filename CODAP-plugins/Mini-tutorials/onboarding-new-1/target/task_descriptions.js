@@ -88,8 +88,9 @@ taskDescriptions = {
   //*  },
   //Issues here – differentiating whether user has selected the top-most bin of an arbitrarily selected attribute
   {
-    key: 'SelectDarkColorsOnMap', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/videos/SelectDarkColorsOnMap.mp4',
+    key: 'SelectCountries', label: 'Click on the colored legend bars to select a subset of countries. Try selecting the countries with higher values of the attribute (darker colors).', url: './resources/videos/SelectDarkColorsOnMap.mp4',
     operation: 'selectCases', type: '',
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
