@@ -411,8 +411,8 @@ class TutorialView extends React.Component {
           break;
         case 'create':
           if (iNotification.values.type === 'graph')
-            this.handleAccomplishment('MakeGraph', !this.isAccomplished('Drag'));
-          else if (iNotification.values.type === 'caseTable', !this.isAccomplished('Drag'))
+            this.handleAccomplishment('MakeGraph');
+          else if (iNotification.values.type === 'caseTable')
             this.handleAccomplishment('MakeTable');
           break;
         case 'move':

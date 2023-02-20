@@ -3,20 +3,21 @@ hasMouse = true; // This is a kludge to prevent loading of Mammals on touch devi
 
 taskDescriptions = {
   descriptions: [{
-    key: 'CreateGraph', label: 'Create a graph.', url: './resources/videos/CreateGraph.mp4',
+    key: 'MakeGraph', label: 'Create a graph.', url: './resources/videos/CreateGraph.mp4',
     operation: 'create', type: 'graph',
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
       React.createElement(
         'p',
         null,
-        'Great, you have a graph!  Now you can put an attribute on it.'
+        'Great, you have a graph!  The data points are scattered because nothing has been added to the axis yet.'
       ),
       React.createElement(
         'p',
         null,
-        'The data points are scattered because nothing has been added to the axes yet.'
+        'The next step is deciding on an attribute to explore.'
       )
     )
   },
@@ -43,7 +44,7 @@ taskDescriptions = {
   {
     key: 'AddInternetUsers', label: 'Change the attribute by dragging “Internet Users” to the horizontal axis.', url: './resources/videos/ChangeAttribute.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
-    //constraints: [{property: 'attributeName', value:'Internet Users'}],
+    constraints: [{ property: 'attributeName', value: 'Internet Users' }],
     prereq: 'AddDoctors',
     feedback: React.createElement(
       'div',
@@ -51,7 +52,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Great work.  You can drag another attribute into the middle of the graph to get a sense of the relationship between the two attributes.'
+        'Great work. Next you will drag another attribute into the middle of the graph to get a sense of the relationship between the two attributes.'
       )
     ),
     alt_feedback: React.createElement(
@@ -78,7 +79,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Notice that you need to hover over the horizontal axis to get a right-facing hand to appear in order to expand the axis.  A left-facing or upward-facing hand will let you change the axis in different ways.  Changing the scale on an axis can allow you to zoom in on one part of the graph or to zoom out to get a view of all of the data points.  You can use this same tool on either the horizontal or vertical axis. Try it!'
+        'Notice that you need to hover over the horizontal axis to get a right-facing hand to expand the axis.  You can change the scale on either the horizontal or vertical axis to zoom in or out on the data points.  When you hover over an axis, the hand may face left, right, up or down to show how the axis will change.'
       )
     )
   }, {
@@ -99,7 +100,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Notice where the darker and lighter points are.  Are they clustered in any way? How do they relate to the values of \u201CInternet Users?\u201D?'
+        'Notice where the darker and lighter points are.  Are they clustered in any way? How do they relate to the values of \u201CInternet Users\u201D?'
       )
     )
   },
@@ -229,11 +230,6 @@ allAccomplishedFeedback = React.createElement(
       'CODAP Help'
     ),
     ' page. '
-  ),
-  React.createElement(
-    'button',
-    { onClick: () => window.parent.location.reload() },
-    'Start Over'
   )
 );
 

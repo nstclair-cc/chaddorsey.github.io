@@ -3,8 +3,9 @@ hasMouse = true;  // This is a kludge to prevent loading of Mammals on touch dev
 taskDescriptions = {
   descriptions: [
     {
-      key: 'CreateGraph', label: 'Create a graph.', url: './resources/videos/CreateGraph.mp4',
+      key: 'MakeGraph', label: 'Create a graph.', url: './resources/videos/CreateGraph.mp4',
       operation: 'create', type: 'graph',
+      requiresSpecialHandling: true,
       feedback: <div>
         <p>Great, you have a graph!  The data points are scattered because nothing has been added to the axis yet.</p>
         <p>The next step is deciding on an attribute to explore.</p>
@@ -27,7 +28,7 @@ taskDescriptions = {
     {
       key: 'AddInternetUsers', label: 'Change the attribute by dragging “Internet Users” to the horizontal axis.', url: './resources/videos/ChangeAttribute.mp4',
       operation: 'attributeChange', type:'DG.GraphView',
-      //constraints: [{property: 'attributeName', value:'Internet Users'}],
+      constraints: [{property: 'attributeName', value:'Internet Users'}],
       prereq: 'AddDoctors',
       feedback: <div>
         <p>Great work. Next you will drag another attribute into the middle of the graph to get a sense of the relationship between the two attributes.</p>
