@@ -11,30 +11,15 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Now you have a lot more space on the screen. You can see the range of values for each of the attributes on the case card. You can also \u201Cscroll\u201D through the cases using the right and left arrows at the top of the card.'
+        'Now you have a lot more space on the screen.  You can see the range of values for each of the attributes on the case card.  You can also \u201Cscroll\u201D through the cases using the right and left arrows at the top of the card. To get back to the card with the range of values, click on the circle between the arrows at the top of the card.'
       )
     )
   } : {},
-  //Need to make specific to attribute
+  //4.2 - Need to redo actions
   {
-    key: 'AddGNPToMap', label: 'Create a map and color it by values of “Average GNP per Person.”', url: './resources/videos/4CreateMap.mp4',
-    operation: 'legendAttributeChange', type: 'DG.MapModel',
-    requiresSpecialHandling: true,
-    //constraints: [ {property: 'attributeName', value: 'Average GNP per Person'}],
-    feedback: React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'p',
-        null,
-        'Great!  \u201CAverage GNP per Person\u201D is one way to measure how much wealth there is in a country. Do you see any geographical patterns in this attribute?'
-      )
-    )
-  },
-  //Need to sense attribute on new graph
-  {
-    key: 'CreateIncomeGraph', label: 'Create a graph with “Share of Income Owned by Top 1%” on the horizontal axis.', url: './resources/videos/CreateGraph-income.mp4',
-    operation: 'attributeChange', type: '',
+    key: 'AddAverageGNPHoriz', label: 'Create a graph and drag \"Average GNP per person\" to the horizontal axis', url: './resources/videos/4creategraphhoriz.mp4',
+    operation: 'attributeChange', type: 'DG.GraphView',
+    //constraints: [{property: 'attributeName', value:'Average GNP per Person'}],
     requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
@@ -42,42 +27,56 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        '\u201CShare of Income Owned by Top 1%\u201D is a measure of how much of a country\u2019s wealth is held by just 1% of the population. What do you notice about the graph?'
+        'Well done! \u201CAverage GNP per Person\u201D is one way to measure how much wealth there is in a country. What do you notice about the graph?'
       )
     )
   }, {
-    key: 'MinimizeMap', label: 'Minimize the map', url: './resources/videos/MinimizeMap.mp4',
-    operation: 'toggle minimize component', type: ['DG.MapView'],
+    key: 'AddAvgLifeExpectVertical', label: 'Drag \"Average Life Expectancy\" th the vertical axis of your graph.', url: './resources/videos/AddLifeExp.mp4',
+    operation: 'attributeChange', type: 'DG.GraphView',
+    constraints: [{ property: 'attributeName', value: 'Average Life Expectancy' }],
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
       React.createElement(
         'p',
         null,
-        'Now you have a lot more space.'
+        'Now that you have two attributes on the graph, what do you notice? Do countries that have a high value on one attribute generally have a high value on the other?'
+      )
+    )
+  }, {
+    key: 'CreateMap', label: 'Create a map.', url: './resources/videos/CreateMap.mp4',
+    operation: 'create', type: 'map',
+    requiresSpecialHandling: true,
+    feedback: React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'p',
+        null,
+        'Great, you\u2019ve opened a map.  Now you can put an attribute on it.'
       ),
       React.createElement(
         'p',
         null,
-        'You can restore the map to its original size by clicking on the \u201Cminus\u201D sign again.'
+        'The colors are all the same because you haven\u2019t dragged data onto the map yet. You will add data from an attribute next.'
       )
     )
-  },
-  //Dunno how to approach this best at all…
-  {
-    key: 'SelectTop20Pct', label: 'Drag to select only some of the countries. (In which countries does the top 1% own over 20% of the wealth?)', url: './resources/videos/SelectSomeCases.mp4',
+  }, {
+    key: 'SelectTopCountries', label: 'Drag on the graph to select the countries that have both high average GNP and high life expectancy.', url: './resources/videos/SelectCountriesonGraph.mp4',
     operation: 'selectCases', type: ['DG.GraphView'],
+    requiresSpecialHandling: true,
     feedback: React.createElement(
       'div',
       null,
       React.createElement(
         'p',
         null,
-        'Because all of the objects on your screen are connected, the countries you\u2019ve selected are highlighted on the graph, on the map and in the table. What can you tell about these countries by looking at the map?'
+        'Great! Notice that both the points you selected and the countries on the map that they correspond to are colored green. This happens because the graph and the map are linked. Do you notice any geographical pattern of the highlighted countries?'
       )
     )
   }, {
-    key: 'SelectDarkColorsOnMap', label: 'Hide all the points except the ones you’ve selected', url: './resources/videos/HideUnselected.mp4',
+    key: 'HideUnselectedPoints', label: 'Hide all of the points except the ones you’ve selected', url: './resources/videos/HideCasesonGraph.mp4',
     operation: 'hideUnselected', type: '',
     feedback: React.createElement(
       'div',
@@ -85,33 +84,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Now all you can see are the points you\u2019ve selected. This action of looking at only a subset of the points is called \u201Cfiltering." How do you think you could get the rest of the points back?'
-      )
-    )
-  },
-  //Issues here – Show All Cases doesn't throw API trigger??
-  {
-    key: 'ShowAllCases', label: 'Get all the points to be visible again', url: './resources/videos/ShowAllCases.mp4',
-    operation: '', type: '',
-    feedback: React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'p',
-        null,
-        'Great. Notice that we also used the \u201Cresize\u201D button so that we could see all of the points. Now that you know how to filter, try using filtering in your exploration of other datasets.'
-      )
-    )
-  }, {
-    key: 'AddAvgGNPVertical', label: 'Explore the relationship between GNP and concentrated wealth by putting “Average GNP per person” on the vertical axis of your graph.', url: './resources/videos/MakeBivariatePlot.mp4',
-    requiresSpecialHandling: true,
-    feedback: React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'p',
-        null,
-        'Now that you have both attributes on one graph, can you see a relationship between them?  Do countries that have high values on one of the attributes have high values on the other?  Or is there some other kind of relationship?'
+        'Now the only points you can see are the ones you\u2019ve selected. This action of looking at only a subset of the points is called \u201Cfiltering.\u201D Try using filtering in your exploration of other datasets. To get all of the points to be visible again, go back to the \u201Ceyeball\u201D menu and choose \u201CShow all cases.\u201D'
       )
     )
   }],
@@ -151,37 +124,32 @@ allAccomplishedFeedback = React.createElement(
     React.createElement(
       'li',
       null,
+      'Switched to case card view'
+    ),
+    React.createElement(
+      'li',
+      null,
+      'Created a graph with an attribute on the horizontal axis'
+    ),
+    React.createElement(
+      'li',
+      null,
       'Created a map'
     ),
     React.createElement(
       'li',
       null,
-      'Dragged an attribute onto the map'
+      'Add an attribute to the vertical axis'
     ),
     React.createElement(
       'li',
       null,
-      'Moved the map'
+      'Select countries on a graph'
     ),
     React.createElement(
       'li',
       null,
-      'Minimized the map'
-    ),
-    React.createElement(
-      'li',
-      null,
-      'Restored the map to its full size'
-    ),
-    React.createElement(
-      'li',
-      null,
-      'Selected attributes with higher values on a map'
-    ),
-    React.createElement(
-      'li',
-      null,
-      'Colored the map by a different attribute'
+      'Hide unselected points'
     )
   ),
   React.createElement(
@@ -205,11 +173,6 @@ allAccomplishedFeedback = React.createElement(
       'CODAP Help'
     ),
     ' page. '
-  ),
-  React.createElement(
-    'button',
-    { onClick: () => window.parent.location.reload() },
-    'Start Over'
   )
 );
 

@@ -355,10 +355,10 @@ class TutorialView extends React.Component {
               if (maxAttrsFound = 1){ 
               let attributeName = iNotification.values.attributeName;
               let attributeAxis = iNotification.values.axisOrientation;
-                if(attributeName === 'Share of Income Owned by Top 1%' && attributeAxis === 'horizontal')
-                  this.handleAccomplishment('CreateIncomeGraph')
-                else if(attributeName === 'Average GNP per Person' && attributeAxis === 'vertical')
-                  this.handleAccomplishment('AddAvgGNPVertical')
+                if(attributeName === 'Average GNP per Person' && attributeAxis === 'horizontal')
+                  this.handleAccomplishment('AddAverageGNPHoriz')
+                else if(attributeName === 'Average Life Expectancy' && attributeAxis === 'vertical')
+                  this.handleAccomplishment('AddAvgLifeExpectVertical')
               };
               }.bind(this));
           }.bind(this),
@@ -390,8 +390,33 @@ class TutorialView extends React.Component {
               }
             });
             this.handleAccomplishment('Drag');
-          }.bind(this);
+          }.bind(this),
 
+          handleSelectCases = function () {
+            var isDone = false;
+            var multiple = false;
+            function triggerCheckbox () {
+              this.handleAccomplishment('SelectTopCountries');
+            }
+            let triggerCheckboxThis = triggerCheckbox.bind(this);
+
+            codapInterface.sendRequest({
+              action: 'get',
+              resource: 'dataContextList'
+            }).then( function(iResult) {
+              if (iResult.success && iResult.values.length > 0) {
+              let tName = iResult.values[0].name;
+              codapInterface.sendRequest({
+                action: 'get',
+                resource: 'dataContext['+ tName + '].selectionList'
+                }).then(function (iResultTwo) {
+                  if (iResultTwo.success && iResultTwo.values.length > 9) {
+                    triggerCheckboxThis();
+                  }
+                });
+              }
+            });
+          }.bind(this);
   //Add operations here to allow them to be handled by the handlers above!
 
       switch (iNotification.values.operation) {
@@ -399,10 +424,12 @@ class TutorialView extends React.Component {
           handleDataContextCountChanged();
           break;
         case 'create':
-          if (iNotification.values.type === 'graph')
-            this.handleAccomplishment('MakeGraph', !this.isAccomplished('Drag'));
-          else if (iNotification.values.type === 'caseTable', !this.isAccomplished('Drag'))
-            this.handleAccomplishment('MakeTable');
+          //if (iNotification.values.type === 'graph')
+          //  this.handleAccomplishment('CreateGraph');
+          if (iNotification.values.type === 'map')
+            this.handleAccomplishment('CreateMap');
+          else if (iNotification.values.type === 'caseTable')
+            this.handleAccomplishment('CreateTable');
           break;
         case 'move':
           if (iNotification.values.type === 'DG.GraphView' || iNotification.values.type === 'DG.TableView')
@@ -416,6 +443,9 @@ class TutorialView extends React.Component {
           break;
         case 'legendAttributeChange':
           handleLegendAttributeChange();
+          break;
+        case 'selectCases':
+          handleSelectCases();
           break;
       }
       return {success: true};
@@ -489,7 +519,7 @@ function getStarted() {
 
   codapInterface.init({
     title: "Getting started with CODAP",
-    version: "1.02",
+    version: "1.03",
     dimensions: {
       width: 400,
       height: 625
