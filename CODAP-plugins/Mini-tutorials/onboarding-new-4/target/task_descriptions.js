@@ -31,7 +31,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'AddAvgLifeExpectVertical', label: 'Drag \"Average Life Expectancy\" th the vertical axis of your graph.', url: './resources/videos/AddLifeExp.mp4',
+    key: 'AddAvgLifeExpectVertical', label: 'Drag \"Average Life Expectancy\" to the vertical axis of your graph.', url: './resources/videos/AddLifeExp.mp4',
     operation: 'attributeChange', type: 'DG.GraphView',
     constraints: [{ property: 'attributeName', value: 'Average Life Expectancy' }],
     requiresSpecialHandling: true,
@@ -63,7 +63,7 @@ taskDescriptions = {
       )
     )
   }, {
-    key: 'SelectTopCountries', label: 'Drag on the graph to select the countries that have both high average GNP and high life expectancy.', url: './resources/videos/SelectCountriesonGraph.mp4',
+    key: 'SelectTopCountries', label: 'Drag on the graph to select nine or more countries that have both high average GNP and high life expectancy.', url: './resources/videos/SelectCountriesonGraph.mp4',
     operation: 'selectCases', type: ['DG.GraphView'],
     requiresSpecialHandling: true,
     feedback: React.createElement(
@@ -161,7 +161,7 @@ allAccomplishedFeedback = React.createElement(
       null,
       'lot'
     ),
-    ' with just those seven skills!'
+    ' with just those six skills!'
   ),
   React.createElement(
     'p',

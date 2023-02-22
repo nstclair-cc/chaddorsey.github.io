@@ -45,7 +45,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Great, you have a graph!  Now you can put attributes on it. The data points are scattered because nothing has been added to the axes yet.'
+        'Great, you have a graph!  The data points are scattered because nothing has been added to the axes yet. Next you will explore what happens when you add an attribute.'
       )
     )
   },
@@ -104,7 +104,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'How does adding the median line help you compare the two distributions? Do the medians show you the same patterns as the means did?'
+        'How does adding the median line help you compare the distributions of doctors in different regions?  Do the medians show you the same patterns as the means did?'
       )
     )
   }, {
@@ -217,11 +217,6 @@ allAccomplishedFeedback = React.createElement(
       'CODAP Help'
     ),
     ' page. '
-  ),
-  React.createElement(
-    'button',
-    { onClick: () => window.parent.location.reload() },
-    'Start Over'
   )
 );
 

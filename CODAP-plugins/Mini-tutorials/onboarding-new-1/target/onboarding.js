@@ -496,15 +496,16 @@ function getStarted() {
   });
 
   //Load dataset
-  codapInterface.sendRequest({
-    action: 'create',
-    resource: 'dataContextFromURL',
-    values: {
-      URL: window.location.href.replace(/\/[^\/]*$/, "") + "/resources/UN-dataset.csv"
-    }
-  }).then(function (iResult) {
-    console.log('Created data context from URL');
-  });
+  //    codapInterface.sendRequest({
+  //      action: 'create',
+  //      resource: 'dataContextFromURL',
+  //      values: {
+  //        URL: window.location.href.replace(/\/[^\/]*$/, "") + "/resources/UN-dataset.csv"
+  //      }
+  //    }).then(function (iResult) {
+  //      console.log('Created data context from URL');
+  //    });
+
 
   ReactDOM.render(React.createElement(TutorialView, null), document.getElementById('container'));
 }
