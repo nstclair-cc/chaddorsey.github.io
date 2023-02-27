@@ -85,9 +85,9 @@ allAccomplishedFeedback = <div>
     <li>Switched to case card view</li>
     <li>Created a graph with an attribute on the horizontal axis</li>
     <li>Created a map</li>
-    <li>Add an attribute to the vertical axis</li>
-    <li>Select countries on a graph</li>
-    <li>Hide unselected points</li>
+    <li>Added an attribute to the vertical axis</li>
+    <li>Selected countries on a graph</li>
+    <li>Hid unselected points</li>
   </ul>
   <p>You can do a <em>lot</em> with just those six skills!</p>
   <p>For more information about how to work with CODAP, visit
