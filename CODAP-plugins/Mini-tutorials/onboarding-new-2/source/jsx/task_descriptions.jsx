@@ -75,7 +75,8 @@ taskDescriptions = {
     {
       key: 'DrawTool', label: 'Open your graph in the Draw Tool.', url: './resources/videos/DrawTool.mp4',
       operation: 'create game controller', type: 'DG.WebView',
-      prereq: 'CreateGraph', 
+      //requiresSpecialHandline: true,
+      prereq: 'MakeGraph', 
       feedback: <div>
         <p>Great!  You can use this draw tool to add text to your graph or circle points you want to highlight, both of which could be very helpful in a presentation.</p>
         <p>This tool works with maps as well.</p>

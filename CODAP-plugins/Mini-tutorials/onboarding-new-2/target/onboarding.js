@@ -412,6 +412,9 @@ class TutorialView extends React.Component {
         case 'legendAttributeChange':
           handleLegendAttributeChange();
           break;
+        case 'create game controller':
+          if (iNotification.values.type === 'DG.WebView') this.handleAccomplishment('DrawTool');
+          break;
       }
       return { success: true };
     }

@@ -124,7 +124,8 @@ taskDescriptions = {
   }, {
     key: 'DrawTool', label: 'Open your graph in the Draw Tool.', url: './resources/videos/DrawTool.mp4',
     operation: 'create game controller', type: 'DG.WebView',
-    prereq: 'CreateGraph',
+    //requiresSpecialHandline: true,
+    prereq: 'MakeGraph',
     feedback: React.createElement(
       'div',
       null,
