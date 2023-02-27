@@ -366,7 +366,7 @@ class TutorialView extends React.Component {
           handleHideAttribute = function() {
             //Get ID of notification component
             console.log('iNotification.attrID',iNotification.values.result.attrIDs[0]);
-            if ((iNotification.values.operation === 'hideAttributes' && iNotification.values.result.attrIDs[0] == 22))
+            if ((iNotification.values.operation === 'hideAttributes' && iNotification.values.result.attrIDs[0] == 233))
               this.handleAccomplishment('HideForested');
           }.bind( this),
 
