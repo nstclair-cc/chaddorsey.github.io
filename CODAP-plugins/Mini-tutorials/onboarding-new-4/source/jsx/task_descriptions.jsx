@@ -46,7 +46,7 @@ taskDescriptions = {
       operation: 'selectCases', type: ['DG.GraphView'],
       requiresSpecialHandling: true,
       feedback: <div>
-        <p>Great! Notice that both the points you selected and the countries on the map that they correspond to are colored green. This happens because the graph and the map are linked. Do you notice any geographical pattern of the highlighted countries?</p>
+        <p>Great! Notice that both the points you selected and the countries on the map that they correspond to are colored differently. This happens because the graph and the map are linked. Do you notice any geographical pattern of the highlighted countries?</p>
       </div>
     },
     {
@@ -87,7 +87,7 @@ allAccomplishedFeedback = <div>
     <li>Created a map</li>
     <li>Added an attribute to the vertical axis</li>
     <li>Selected countries on a graph</li>
-    <li>Hid unselected points</li>
+    <li>Hidden unselected points</li>
   </ul>
   <p>You can do a <em>lot</em> with just those six skills!</p>
   <p>For more information about how to work with CODAP, visit
